@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #07141c;
+  --color-foam: #f4efe6;
+  --color-sand: #e6d3b0;
+  --color-lagoon: #1c9a96;
+  --color-sun: #e39a56;
+  --color-muted: #b7c4c8;
+  --font-display: "Fraunces", Georgia, serif;
+  --font-sans: "Outfit", system-ui, sans-serif;
+}
+
+@layer base {
+  html,
+  body {
+    height: 100%;
+    margin: 0;
+    background: var(--color-ink);
+    color: var(--color-foam);
+    overflow: hidden;
+    overscroll-behavior: none;
+  }
+  body {
+    font-family: var(--font-sans);
+  }
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+.veil {
+  background: radial-gradient(ellipse at center, transparent 42%, var(--color-ink) 100%);
+  opacity: 0.42;
+  pointer-events: none;
+}
+
+.chip {
+  background: color-mix(in srgb, var(--color-ink) 68%, transparent);
+  color: var(--color-foam);
+  border: 1px solid color-mix(in srgb, var(--color-foam) 28%, transparent);
+  backdrop-filter: blur(10px);
+}
+
+.chip[data-on="true"] {
+  background: var(--color-foam);
+  color: var(--color-ink);
+  border-color: var(--color-foam);
+}
+
+.rail {
+  height: 2px;
+  background: color-mix(in srgb, var(--color-foam) 28%, transparent);
+}
+
+.scrim-copy {
+  text-shadow: 0 1px 2px color-mix(in srgb, var(--color-ink) 65%, transparent);
+}
+
+.rail > span {
+  display: block;
+  height: 100%;
+  width: 100%;
+  background: var(--color-sun);
+  transform-origin: left center;
+  transform: scaleX(0);
+}
