@@ -4,8 +4,6 @@ import { Pause, Play, RotateCcw } from "lucide-react";
 import { PHASES, phaseAt, type PhaseId } from "@/lagoon/world";
 import type { FilmApi } from "@/lagoon/film";
 
-const filmReady = typeof window === "undefined" ? null : import("@/lagoon/film");
-
 export const Route = createFileRoute("/")({ component: Home });
 
 function formatTime(time: number): string {
@@ -38,7 +36,7 @@ function Home() {
       setPlaying(false);
       setPhase("splash");
     }
-    if (!filmReady) return;
+    const filmReady = import("@/lagoon/film");
     void filmReady.then(({ mountFilm }) => {
         if (!alive || !canvasRef.current) return;
         try {

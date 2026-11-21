@@ -7,8 +7,8 @@
   --color-lagoon: #1c9a96;
   --color-sun: #e39a56;
   --color-muted: #b7c4c8;
-  --font-display: "Fraunces", Georgia, serif;
-  --font-sans: "Outfit", system-ui, sans-serif;
+  --font-display: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+  --font-sans: system-ui, "Segoe UI", sans-serif;
 }
 
 @layer base {
